@@ -1,0 +1,17 @@
+name: First Workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo "Hello, World!"
+      - name: Run a multi-line script
+        run: |
+          node -v
+          npm -v
+          echo "This is a multi-line script running on GitHub Actions."
