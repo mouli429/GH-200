@@ -19,4 +19,4 @@ jobs:
       - name: Multiline code
         run: |
           get-service
-          Get-ComputerInfo
+          Get-Acl
