@@ -11,3 +11,12 @@ jobs:
         run: |
           node -v
           npm -v
+  run-win-commands:
+    runs-on: windows-2025
+    steps:
+      - name: print a string
+        run: write-host hello from windows
+      - name: Multiline code
+        run: |
+          get-service
+          Get-ComputerInfo
