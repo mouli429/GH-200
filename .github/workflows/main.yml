@@ -19,4 +19,4 @@ jobs:
       - name: Multiline code
         run: |
           get-service
-          Get-Acl
+          write-host "multi line commands"
