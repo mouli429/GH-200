@@ -11,6 +11,9 @@ jobs:
           echo ${{ 1 }}
           echo ${{ 1 > 2 }}
           echo ${{ 'this is for testing ' }}
-
-
+      -  name: contexts
+         run: |
+           echo '${{ toJson(github) }}'
+           echo '${{ toJson(steps) }}'
+           echo '${{ toJson(runner) }}'
 
