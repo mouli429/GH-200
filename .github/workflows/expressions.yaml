@@ -1,0 +1,14 @@
+name: expressions
+on: [push, pull_request, issues, workflow_dispatch]
+
+jobs:
+  using-expressions-and-cntexts:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Expressions
+      id: expressions
+      run: |
+        echo ${{ 1 }}
+        echo ${{ 1 > 2 }}
+        echo ${{ 'this is for testing ' }}
+
