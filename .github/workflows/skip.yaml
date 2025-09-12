@@ -1,4 +1,4 @@
-name: example-workflow
+name: example-workflow skip
 on: [push]
 jobs:
   production-deploy:
