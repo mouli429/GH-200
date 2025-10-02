@@ -1,0 +1,17 @@
+name: level2
+on: [push, pull_request]
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "build job"
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: echo a string
+        run: echo "test job"
+
