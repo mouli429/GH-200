@@ -1,8 +1,10 @@
 name: task1
-on: [push]
+on: [push, pull_request]
 jobs:
   run-echo-commands:
     runs-on: ubuntu-latest
     steps:
       - name: echo a string
         run: echo "Hello GitHub Actions!"
+      - name: print the event name
+        run: echo "The event name is ${{ github.event_name }}"
