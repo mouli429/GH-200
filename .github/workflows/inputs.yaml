@@ -1,23 +1,25 @@
-name: Checkout
-on: [workflow_dispatch]
-
-inputs:
-  debug:
-    description: 'Debug mode'
-    required: true
-    type: boolean
-  version:
-    description: 'Version to deploy'
-    required: true
-    default: 'latest'
+name: working with inputs
+on:
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Debug mode'
+        required: true
+        type: boolean
+      version:
+        description: 'Version to deploy'
+        required: true
+        default: 'latest'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
+        - name: Display inputs
+          run: echo "Debug mode ${{ inputs.tag }}"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Display inputs
+          run: echo "Debug mode ${{ inputs.version }}"
 
-      - name: Display inputs
-        run: |
-          echo "Debug mode: ${{ github.event.inputs.debug }}"
-          echo "Version: ${{ github.event.inputs.version }}"
