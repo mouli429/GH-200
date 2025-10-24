@@ -7,6 +7,8 @@ jobs:
     outputs:
       name: ${{ steps.step1.outputs.Name }}
     steps:
+      - name: print github output path
+        run: echo "$GITHUB_OUTPUT"
       - id: step1
         run: echo "Name=MOuli" >> $GITHUB_OUTPUT
 
