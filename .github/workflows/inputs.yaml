@@ -1,14 +1,15 @@
-on:
-workflow_dispatch:
-  inputs:
-    debug:
-      description: 'Debug mode'
-      required: true
-      type: boolean
-    version:
-      description: 'Version to deploy'
-      required: true
-      default: 'latest'
+name: Checkout
+on: [workflow_dispatch]
+
+inputs:
+  debug:
+    description: 'Debug mode'
+    required: true
+    type: boolean
+  version:
+    description: 'Version to deploy'
+    required: true
+    default: 'latest'
 
 jobs:
   deploy:
