@@ -1,0 +1,18 @@
+name: Checkout
+on: [workflow_dispatch]
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.step1.outputs.Name }}
+    steps:
+      - id: step1
+        run: echo "Name=MOuli" >> $GITHUB_OUTPUT
+
+  greet:
+    needs: welcome
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet user
+        run: echo "Hello ${{ needs.welcome.outputs.name }}!"
