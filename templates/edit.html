@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Edit Task{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Edit task</h2>
+  <form method="post" action="{{ url_for('update', todo_id=todo.id) }}" class="form-grid">
+    <input type="text" name="title" value="{{ todo.title }}" required />
+    <input type="text" name="description" value="{{ todo.description or '' }}" />
+    <div class="row">
+      <a class="btn" href="{{ url_for('index') }}">Cancel</a>
+      <button type="submit">Save</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

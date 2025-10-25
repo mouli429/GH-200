@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}To‑Do | Home{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Add a task</h2>
+  <form method="post" action="{{ url_for('add') }}" class="form-grid">
+    <input type="text" name="title" placeholder="Task title" required />
+    <input type="text" name="description" placeholder="Optional description" />
+    <button type="submit">Add</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Tasks</h2>
+  {% if not todos %}
+  <p class="muted">No tasks yet. Add one above.</p>
+  {% else %}
+  <ul class="todo-list">
+    {% for t in todos %}
+    <li class="todo-item {{ 'done' if t.done else '' }}">
+      <form method="post" action="{{ url_for('toggle', todo_id=t.id) }}">
+        <input type="checkbox" name="done" {% if t.done %}checked{% endif %} onchange="this.form.submit()" />
+        <span class="todo-title">{{ t.title }}</span>
+        {% if t.description %}<span class="todo-desc">— {{ t.description }}</span>{% endif %}
+      </form>
+      <div class="actions">
+        <a class="btn" href="{{ url_for('edit', todo_id=t.id) }}">Edit</a>
+        <form method="post" action="{{ url_for('delete', todo_id=t.id) }}" onsubmit="return confirm('Delete this task?');">
+          <button class="btn danger" type="submit">Delete</button>
+        </form>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endblock %}
