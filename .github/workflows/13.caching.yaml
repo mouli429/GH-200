@@ -7,6 +7,13 @@ on:
             description: 'Enable caching for node modules'
             type: boolean
             default: true
+        node-version:
+            description: 'Node.js version to setup'
+            type: choice
+            options:
+              - '18.x'
+              - '20.x'
+              - '21.x'
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -19,7 +26,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: '20.x'
+                  node-version: ${{ inputs.node-version }}
             - name: install dependencies
               run: npm install
             - name: Run tests
