@@ -1,3 +1,6 @@
+name: trsting
+on:
+  workflow_dispatch
 jobs:
   workflow-command-job:
     runs-on: ubuntu-latest
